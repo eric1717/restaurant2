@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <title>Index</title>
+  <meta charset="utf-8"> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+              Restaurant
+            </a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/new">Create</a></li>
+            <li><a href="/search">Search</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul>
+        </div>
+    </nav>
+  </head>
+   <body>
+     <div class="container">
+      <H1>Hello, <%= name %></H1>
+      <H2>This is a secret page!</H2>
+      <br>
+      <h2>Search Restaurant</h2>
+      <div id="custom-search-input">
+        <form action="/search" method="get">
+        <div class="input-group col-md-4">
+            <input type="text" class="form-control input-lg" placeholder="Restaurant name" name="name"/>
+            <span class="input-group-btn">
+              <button class="btn btn-info btn-lg" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </span>
+        </div>
+        </form>
+      </div> 
+      <br>
+      <a href="/new" class="btn btn-default">Create Restaurant</a>
+      <br>
+      
+      <div class='well'>
+      <h2>Restaurant List</h2>
+      <ul class="list-group">
+          <% for (i in r) { %>
+            <a href='/display?_id=<%= r[i]._id %>' class="list-group-item"><%= r[i].name %></a>
+         <% } %>
+      </ul>
+      </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,19 @@
+{
+    "name": "server",
+    "description": "NodeJS Session",
+    "author": "Raymond SO <rso@ouhk.edu.hk>",
+    "version": "0.0.1",
+    "dependencies": {
+        "body-parser": "*",
+        "cookie-session": "*",
+        "ejs": "*",
+        "exif": "^0.6.0",
+        "express": "*",
+        "formidable": "^1.1.1",
+        "mongodb": "^2.2.33"
+    },
+    "engine": "node >= 0.10.0",
+    "scripts": {
+        "start": "node server"
+    }
+}

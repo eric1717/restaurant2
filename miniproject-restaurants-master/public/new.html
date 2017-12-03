@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Create restaurant</title>
+  <meta charset="utf-8"> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          Restaurant
+        </a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/new">Create</a></li>
+        <li><a href="/search">Search</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
+ </nav>
+</head>
+<body>
+  <div class="container">
+    
+    <h2>Create restaurant</h2>
+    <div class='well'>
+    <form action="/create" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+          <label for="Name">Name:</label>
+          <input type="text" class="form-control" name="Name">
+      </div>
+      <div class="form-group">
+          <label for="Cuisine">Cuisine:</label>
+          <input type="text" class="form-control" name="Cuisine">
+      </div>
+      <div class="form-group">
+          <label for="Street">Street:</label>
+          <input type="text" class="form-control" name="Street">
+      </div>
+      <div class="form-group">
+          <label for="Building">Building:</label>
+          <input type="text" class="form-control" name="Building">
+      </div>
+      <div class="form-group">
+          <label for="Zipcod">Zipcode:</label>
+          <input type="text" class="form-control" name="Zipcode">
+      </div>
+      <div class="form-group">
+          <label for="GPS(lon)">GPS Coordinates (lon.):</label>
+          <input type="text" class="form-control" name="lon">
+      </div>
+      <div class="form-group">
+          <label for="GPS(lat)">GPS Coordinates (lat.)</label>
+          <input type="text" class="form-control" name="lat">
+      </div>
+      <div class="form-group">
+          <label for="photo">Photo:</label>
+          <input type="file" class="form-control" name="photo">
+      </div>
+
+      <input type="submit" class="btn btn-default" value="Create">
+    </form>
+  </div>
+</body>
+</html>

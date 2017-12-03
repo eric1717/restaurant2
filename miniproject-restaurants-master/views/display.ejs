@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Display</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+              Restaurant
+            </a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/new">Create</a></li>
+            <li><a href="/search">Search</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul>
+        </div>
+   </nav>
+
+  <link rel="stylesheet" type="text/css" href="layout.css">
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript">
+		var loadMap = function () {
+			var myLatLng = { lat: <%=lat%>, lng: <%=lon%>};
+			var map = new google.maps.Map(document.getElementById("map"), {
+				zoom: 12,
+				center: myLatLng
+			});
+			var map = new google.maps.Marker({
+				position: myLatLng,
+				map: map,
+			});
+		};
+		window.onload = loadMap;
+	</script>
+
+    
+    
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+    <!--<div id="map" style="width:500px;height:500px;"></div>-->
+   <div class="w3-container w3-green">
+      <center>
+         <h1>
+            <%= p.name %>
+         </h1>
+      </center>
+   </div>
+    <div class="container">        
+        <div class="row">
+            <div class="col-sm-8">
+            <img src="data:<%= p.mimetype %>;base64, <%= p.photo %>">
+            </div>
+        </div>
+        <h4>Borough: <%=p.borough%></h4>
+        <h4>Cuisine: <%=p.cuisine%></h4>
+        <h4>Address:</h4>
+            <h4>&emsp;&emsp;&emsp;&emsp;street: <%=p.address.street%></h4>
+            <h4>&emsp;&emsp;&emsp;&emsp;building: <%=p.address.building%></h4>
+            <h4>&emsp;&emsp;&emsp;&emsp;zipcode: <%=p.address.zipcode%></h4>
+        <h4>GPS: [<%=lat%>,<%=lon%>]</h4>
+        <table>
+        <tr><th><h4>Rating: </h4></th><th><h4> User (Score)</h4></th></tr>
+        
+        <% for (var i = 0; i < p.grades.length; i++) { %>
+          <tr><td></td><td><h4><%=p.grades[i].user%>  (<%=p.grades[i].score%>)</h4></td></tr>
+        <%  } %>
+        </table>
+        <h4>Created by:<%=p.owner%></h4>
+            
+        <div class="row"> 
+          <% if (lat == -1 || lon == -1 || lat == '' || lon == '') { %>
+            <h4> Not Coord Data </h4> 
+          <% }else { %>
+            <a href="/map?lat=<%=lat%>&lon=<%=lon%>" class="btn btn-success">Go Google MAP</a>
+          <% } %>
+        </div>
+        <br>
+        <div class="row"> 
+            <a href="/" class="btn btn-default">Back</a>
+            <a href="/grade?_id=<%=p._id %>" class="btn btn-default">Rate</a>
+            <a href="/update?_id=<%=p._id %>" class="btn btn-default">Update</a>
+            <a href="/delete?_id=<%=p._id %>" class="btn btn-default">Delete</a>
+        </div>
+        <br>
+        <br>
+    </div>
+        
+</html>

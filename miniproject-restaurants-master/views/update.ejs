@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>Update restaurant</title>
+  <meta charset="utf-8"> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          Restaurant
+        </a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/new">Create</a></li>
+        <li><a href="/search">Search</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  </head>
+<body>
+  <div class="container">
+    
+    <h2>Update restaurant</h2>
+    <div class='well'>
+    <form action="/update?_id=<%=r._id%>" method="post" enctype="multipart/form-data">
+
+      <div class="form-group">
+          <label for="Name">Name:</label>
+          <input type="text" class="form-control" name="name" value="<%=r.name%>">
+      </div>
+      <div class="form-group">
+        <label for="Borough">Borough:</label>
+        <input type="text" class="form-control" name="borough" value="<%=r.borough%>">
+      </div>
+      <div class="form-group">
+          <label for="Cuisine">Cuisine:</label>
+          <input type="text" class="form-control" name="cuisine" value="<%=r.cuisine%>">
+      </div>
+      <div class="form-group">
+          <label for="Street">Street:</label>
+          <input type="text" class="form-control" name="street" value="<%=r.address.street%>">
+      </div>
+      <div class="form-group">
+          <label for="Building">Building:</label>
+          <input type="text" class="form-control" name="building" value="<%=r.address.building%>">
+      </div>
+      <div class="form-group">
+          <label for="Zipcode">Zipcode:</label>
+          <input type="text" class="form-control" name="zipcode" value="<%=r.address.zipcode%>">
+      </div>
+      <div class="form-group">
+          <label for="GPS(lon)">GPS Coordinates (lon.):</label>
+          <input type="text" class="form-control" name="lon" value="<%=r.coord[0]%>">
+      </div>
+      <div class="form-group">
+          <label for="GPS(lat)">GPS Coordinates (lat.)</label>
+          <input type="text" class="form-control" name="lat" value="<%=r.coord[1]%>">
+      </div>
+      <div class="form-group">
+          <label for="photo">Photo:</label>
+          <input type="file" class="form-control" name="photo" value="">
+      </div>
+      <div class="row">
+      <input type="submit" class="btn btn-default" value="Update">
+      <a href="/display?_id=<%=r._id%>" class="btn btn-default">Back</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

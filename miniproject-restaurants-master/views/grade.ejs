@@ -1,0 +1,53 @@
+<HTML>
+<BODY>
+<head>
+  <title>Grade</title>
+  <meta charset="utf-8"> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+              Restaurant
+            </a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/new">Create</a></li>
+            <li><a href="/search">Search</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+          </ul>
+        </div>
+    </nav>
+</head>
+ <div class="container">
+  <div class="form-group">
+  <form action="/grade?_id=<%=id %>" method="post" enctype="multipart/form-data">
+    <select  name="Score"  class="form-control">
+      <option selected value="DEFAULT">Score</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    <input type="hidden" name ="id" value='<%=id %>' />
+    <br>
+    <input type="submit" value="Submit Score"  class="btn btn-default"/>
+  </form>
+  </div>
+<div></div>
+ </div>
+</BODY>
+</HTML>
